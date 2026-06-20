@@ -1,0 +1,40 @@
+============================================================
+  Script  : validacion_netconf.py
+  Fecha   : 2026-06-20 21:53:40
+  Host VM : labvm
+============================================================
+  Alumno  : Vidal Vidal Benjamin Jose (001V-21)
+  Cliente : Integración Digital SA
+  Router  : 192.168.56.101:830
+
+Conectando al router via NETCONF (puerto 830)...
+Conexion NETCONF establecida.
+
+XML guardado en: /home/devasc/ep3-automatizacion-001V-21/fase3_validacion_netconf/evidencias/rpc_reply_raw.xml
+
+------------------------------------------------------------
+  REPORTE DE VALIDACION NETCONF
+------------------------------------------------------------
+  [OK]   Hostname corporativo
+         Esperado : RTR-INTDIG
+         Obtenido : RTR-INTDIG
+
+  [OK]   IP Loopback
+         Esperado : 10.1.21.1
+         Obtenido : 10.1.21.1
+
+  [OK]   Mascara Loopback
+         Esperado : 255.255.255.0
+         Obtenido : 255.255.255.0
+
+  [OK]   Descripcion WAN
+         Esperado : Enlace-WAN-Tocopilla
+         Obtenido : Enlace-WAN-Tocopilla
+
+  [OK]   Servidor NTP
+         Esperado : 1.1.1.1
+         Obtenido : 1.1.1.1
+
+------------------------------------------------------------
+  RESULTADO: CONFORME (5/5 criterios OK)
+------------------------------------------------------------
