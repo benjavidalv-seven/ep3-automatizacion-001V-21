@@ -1,0 +1,39 @@
+
+PLAY [EP3 - Aprovisionamiento Router RTR-INTDIG | Integración Digital SA] ******
+
+TASK [Respaldar configuracion actual del router] *******************************
+ok: [csr1kv]
+
+TASK [Guardar respaldo en archivo] *********************************************
+changed: [csr1kv -> localhost]
+
+TASK [Habilitar NETCONF (netconf-yang)] ****************************************
+ok: [csr1kv]
+
+TASK [Habilitar RESTCONF (restconf)] *******************************************
+ok: [csr1kv]
+
+TASK [Habilitar servidor HTTP seguro] ******************************************
+ok: [csr1kv]
+
+TASK [Configurar hostname corporativo] *****************************************
+changed: [csr1kv]
+
+TASK [Configurar banner de acceso] *********************************************
+changed: [csr1kv]
+
+TASK [Configurar servidor NTP] *************************************************
+changed: [csr1kv]
+
+TASK [Configurar descripcion interfaz GigabitEthernet1] ************************
+changed: [csr1kv]
+
+TASK [Crear interfaz Loopback21 con IP de gestion] *****************************
+changed: [csr1kv]
+
+TASK [Guardar configuracion (write memory)] ************************************
+changed: [csr1kv]
+
+PLAY RECAP *********************************************************************
+csr1kv                     : ok=11   changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

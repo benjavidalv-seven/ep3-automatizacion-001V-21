@@ -1,0 +1,74 @@
+---
+- name: "EP3 - Aprovisionamiento Router {{ router.hostname }} | {{ cliente.empresa }}"
+  hosts: routers
+  gather_facts: false
+  vars_files:
+    - ../vars/vars_001V-21.yaml
+
+  tasks:
+
+    - name: "Respaldar configuracion actual del router"
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: backup_output
+
+    - name: "Guardar respaldo en archivo"
+      copy:
+        content: "{{ backup_output.stdout[0] }}"
+        dest: "respaldo/backup_001V-21.cfg"
+      delegate_to: localhost
+
+    - name: "Habilitar NETCONF (netconf-yang)"
+      cisco.ios.ios_config:
+        lines:
+          - netconf-yang
+        save_when: never
+
+    - name: "Habilitar RESTCONF (restconf)"
+      cisco.ios.ios_config:
+        lines:
+          - restconf
+        save_when: never
+
+    - name: "Habilitar servidor HTTP seguro"
+      cisco.ios.ios_config:
+        lines:
+          - ip http secure-server
+          - ip http authentication local
+        save_when: never
+
+    - name: "Configurar hostname corporativo"
+      cisco.ios.ios_system:
+        hostname: "{{ router.hostname }}"
+
+    - name: "Configurar banner de acceso"
+      cisco.ios.ios_banner:
+        banner: motd
+        text: "{{ router.banner }}"
+        state: present
+
+    - name: "Configurar servidor NTP"
+      cisco.ios.ios_config:
+        lines:
+          - "ntp server {{ router.ntp_server }}"
+        save_when: never
+
+    - name: "Configurar descripcion interfaz GigabitEthernet1"
+      cisco.ios.ios_interfaces:
+        config:
+          - name: GigabitEthernet1
+            description: "{{ router.descripcion_wan }}"
+        state: merged
+
+    - name: "Crear interfaz Loopback{{ router.loopback_id }} con IP de gestion"
+      cisco.ios.ios_l3_interfaces:
+        config:
+          - name: "Loopback{{ router.loopback_id }}"
+            ipv4:
+              - address: "{{ router.loopback_ip }}/{{ router.loopback_prefix }}"
+        state: merged
+
+    - name: "Guardar configuracion (write memory)"
+      cisco.ios.ios_config:
+        save_when: modified
