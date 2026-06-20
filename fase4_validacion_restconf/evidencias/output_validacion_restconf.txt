@@ -1,0 +1,42 @@
+============================================================
+  Script  : validacion_restconf.py
+  Fecha   : 2026-06-20 22:50:00
+  Host VM : labvm
+============================================================
+  Alumno  : Vidal Vidal Benjamin Jose (001V-21)
+  Cliente : Integración Digital SA
+  Router  : 192.168.56.101
+
+Consultando endpoints RESTCONF...
+
+  GET https://192.168.56.101/restconf/data/Cisco-IOS-XE-native:native/hostname
+       -> Guardado en get_hostname.json
+  GET https://192.168.56.101/restconf/data/ietf-interfaces:interfaces/interface=Loopback21
+       -> Guardado en get_loopback.json
+  GET https://192.168.56.101/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1
+       -> Guardado en get_interfaces.json
+  GET https://192.168.56.101/restconf/data/Cisco-IOS-XE-native:native/ntp
+       -> Guardado en get_ntp.json
+
+------------------------------------------------------------
+  REPORTE DE VALIDACION RESTCONF
+------------------------------------------------------------
+  [OK]   Hostname corporativo
+         Esperado : RTR-INTDIG
+         Obtenido : RTR-INTDIG
+
+  [OK]   IP Loopback
+         Esperado : 10.1.21.1
+         Obtenido : 10.1.21.1
+
+  [OK]   Descripcion WAN
+         Esperado : Enlace-WAN-Tocopilla
+         Obtenido : Enlace-WAN-Tocopilla
+
+  [OK]   Servidor NTP
+         Esperado : 1.1.1.1
+         Obtenido : 1.1.1.1
+
+------------------------------------------------------------
+  RESULTADO: CONFORME (4/4 criterios OK)
+------------------------------------------------------------
