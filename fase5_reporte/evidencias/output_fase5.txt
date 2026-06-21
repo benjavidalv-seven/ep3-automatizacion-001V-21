@@ -1,0 +1,51 @@
+============================================================
+  GENERANDO CERTIFICADO DE COMPLIANCE
+  Fecha: 2026-06-20 23:59:19
+============================================================
+
+  [OK]   Validacion NETCONF: CONFORME
+  [OK]   Validacion RESTCONF: CONFORME
+  [OK]   Diff detectado (2 archivo(s) con cambios)
+
+
+================================================================================
+         CERTIFICADO DE COMPLIANCE - EP3 DRY7122
+         DUOC UC - Escuela de Informatica y Telecomunicaciones
+================================================================================
+
+  DATOS DEL ALUMNO
+  ----------------
+  Nombre    : Vidal Vidal Benjamin Jose
+  Codigo    : 001V-21
+  Asignatura: DRY7122 - Programacion y Redes Virtualizadas (SDN-NFV)
+
+  DATOS DEL PROYECTO
+  ------------------
+  Empresa cliente : Integración Digital SA
+  Hostname router : RTR-INTDIG
+  IP Loopback     : 10.1.21.1/24
+  Desc. WAN       : Enlace-WAN-Tocopilla
+  Banner          : ACCESO RESTRINGIDO - INTDIG
+  Servidor NTP    : 1.1.1.1
+
+  RESULTADOS DE VALIDACION
+  ------------------------
+  Validacion NETCONF   : CONFORME
+  Validacion RESTCONF  : CONFORME
+  Diff baseline/final  : CAMBIOS DETECTADOS
+
+  RESULTADO GLOBAL
+  ----------------
+
+  >>> CONFORME <
+
+  El equipo RTR-INTDIG ha sido configurado correctamente y queda
+  listo para operar en la red de Integración Digital SA.
+
+  Fecha y hora de emision : 2026-06-20 23:59:19
+  Host de emision         : labvm
+  Generado por            : generar_certificado.py
+
+================================================================================
+
+Certificado guardado en: /home/devasc/ep3-automatizacion-001V-21/fase5_reporte/evidencias/certificado_compliance_001V-21.txt
